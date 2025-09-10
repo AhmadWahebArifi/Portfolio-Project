@@ -1,0 +1,55 @@
+{
+  "nav": {
+    "home": "Home",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hi, I'm Ahmad Waheb Arifi",
+    "title": "Full‑Stack Developer — LAMP & MERN",
+    "subtitle": "I build scalable web apps, APIs, and data solutions across Linux/Apache/MySQL/PHP and MongoDB/Express/React/Node. Comfortable with SQL and NoSQL data modeling, ETL pipelines, and production deployments.",
+    "download": "Download CV",
+    "whatIDo": "What I Do",
+    "headline": "End‑to‑end web and data solutions",
+    "points1": "• LAMP: Linux, Apache, MySQL, PHP (Laravel) — REST APIs, auth, dashboards.",
+    "points2": "• MERN: MongoDB, Express, React, Node — SPAs, SSR, real‑time features.",
+    "points3": "• Databases: MySQL, MongoDB — schema design, indexing, performance.",
+    "points4": "• Data & ETL: Python, pipelines, data warehousing concepts, reporting.",
+    "points5": "• Languages: Python, Java, C++ — scripting, services, and algorithms.",
+    "points6": "• DevOps: Vite/Tailwind, deployment, CI basics, monitoring."
+  },
+  "skills": {
+    "heading": "Full‑stack development and data engineering",
+    "subheading": "LAMP & MERN stacks, SQL/NoSQL databases, Python ETL, and core languages.",
+    "filters": ["all", "Full-Stack", "Databases", "Data/ETL", "Languages"],
+    "cards": [
+      { "category": "Full-Stack", "title": "LAMP (Linux, Apache, MySQL, PHP/Laravel)" },
+      { "category": "Full-Stack", "title": "MERN (MongoDB, Express, React, Node)" },
+      { "category": "Databases", "title": "MySQL — schema design, joins, indexes, optimization" },
+      { "category": "Databases", "title": "MongoDB — aggregation, pipelines, sharding basics" },
+      { "category": "Data/ETL", "title": "ETL Pipelines — Python, data warehousing concepts" },
+      { "category": "Languages", "title": "Python, Java, C++ — scripting, services, algorithms" }
+    ]
+  },
+  "projects": {
+    "heading": "Featured work across LAMP, MERN, and Data/ETL",
+    "items": [
+      { "title": "LAMP CRM Platform", "description": "Customer management app built with Laravel, MySQL, and REST APIs. Features RBAC, reporting, and automated emails." },
+      { "title": "MERN E‑Commerce SPA", "description": "React storefront with Node/Express backend, MongoDB, JWT auth, Stripe checkout, and admin dashboard." },
+      { "title": "Python ETL & Warehouse", "description": "Data ingestion pipelines from APIs/files into a warehouse; transformations and scheduled reports." }
+    ],
+    "viewDetails": "View Details"
+  },
+  "contact": {
+    "label": "Contact",
+    "headline": "Let's build something great",
+    "intro": "I'm a full‑stack developer (LAMP & MERN) with strong database and ETL skills. If you have a role, project, or collaboration in mind, reach out and I'll get back quickly.",
+    "locationLabel": "Location",
+    "location": "Kabul, Afghanistan",
+    "phoneLabel": "Phone",
+    "emailLabel": "Email",
+    "messagePlaceholder": "Tell me about your project or role",
+    "send": "Send Message"
+  }
+} 
