@@ -27,12 +27,17 @@ jobs:
           cache: 'npm'
       - name: Install
         run: npm ci
+        working-directory: Project
       - name: Build
         run: npm run build
+        working-directory: Project
+      - name: Add SPA 404 fallback
+        run: cp dist/index.html dist/404.html
+        working-directory: Project
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: Project/dist
 
   deploy:
     needs: build
