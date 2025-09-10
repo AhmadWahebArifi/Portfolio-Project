@@ -27,14 +27,12 @@ jobs:
           cache: 'npm'
       - name: Install
         run: npm ci
-        working-directory: Project
       - name: Build
         run: npm run build
-        working-directory: Project
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: Project/dist
+          path: dist
 
   deploy:
     needs: build
