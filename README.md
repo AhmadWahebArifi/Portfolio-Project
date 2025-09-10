@@ -1,26 +1,29 @@
-<h1 align="center">React Admin Dashboard</h1>
+# Portfolio Project
 
-![Demo App](/public/screenshot-for-readme-1.png)
-![Demo App](/public/screenshot-for-readme-2.png)
-![Demo App](/public/screenshot-for-readme-3.png)
+A Vite + React portfolio with i18n (English/Persian) and GitHub Pages deployment.
 
-[Video Tutorial on Youtube](https://youtu.be/gK0v_d91epk)
+## Live Demo
 
-### This is a free admin dashboard ui kit built with:
+- Production (GitHub Pages): `https://ahmadwahebarifi.github.io/Portfolio-Project/`
 
--   React
--   Tailwind CSS
--   Recharts
--   Framer Motion
+## Scripts
 
-It is completely responsive and can be used for any type of web application.
+- `npm run dev` – start local dev server
+- `npm run build` – build for production
+- `npm run preview` – preview production build locally
 
-### Run this app locally
+## Development
 
-```shell
-npm install
+```bash
+cd Project
+npm ci
+npm run dev
 ```
 
-```shell
-npm run start
-```
+## Deployment
+
+Deployment is automated via GitHub Actions on push to `main`:
+- Workflow: `.github/workflows/deploy.yml`
+- Vite `base` set to `/Portfolio-Project/` for Pages
+
+Trigger a deployment by pushing to `main`.
