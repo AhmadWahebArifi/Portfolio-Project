@@ -4,27 +4,27 @@ const About = () => {
   return (
     <section
       id="contact"
-      class="px-4 sm:px-40 relative z-10 overflow-visible bg-white py-20 lg:py-[120px]  dark:bg-gray-900 dark:text-white"
+      className="px-4 sm:px-6 lg:px-40 relative z-10 overflow-visible bg-white py-16 lg:py-[120px] dark:bg-gray-900 dark:text-white"
     >
-      <div class="container ml-5 mx-3">
-        <div class="-mx-4 flex flex-wrap lg:justify-between">
-          <div class="w-full px-4 lg:w-5/12 xl:w-5/12">
-            <div class="mb-12 max-w-[570px] lg:mb-0">
-              <span class="mb-4 block text-base font-semibold text-primary">
+      <div className="container mx-auto px-4">
+        <div className="-mx-4 flex flex-wrap lg:justify-between">
+          <div className="w-full px-4 lg:w-5/12 xl:w-5/12">
+            <div className="mb-8 lg:mb-0 max-w-full lg:max-w-[570px]">
+              <span className="mb-4 block text-base font-semibold text-primary">
                 {t("contact.label")}
               </span>
-              <h2 class="mb-6 text-[22px]  font-bold uppercase text-dark sm:text[40px] lg:text-[36px] xl:text-[40px] dark:text-white">
+              <h2 className="mb-6 text-xl sm:text-2xl lg:text-[36px] xl:text-[40px] font-bold uppercase text-dark dark:text-white">
                 {t("contact.headline")}
               </h2>
-              <p class="mb-9 w-[90%] sm:w-full text-base leading-relaxed text-body-color dark:text-dark-6">
+              <p className="mb-9 w-full text-sm sm:text-base leading-relaxed text-body-color dark:text-dark-6">
                 {t("contact.intro")}
               </p>
 
-              <div class="mb-8 flex w-full max-w-[370px]">
-                <div class="mr-6 flex h-[60px] w.full max-w-[60px] items-center justify-center overflow-hidden rounded-sm bg-primary/5 text-primary sm:h-[70px] sm:max-w-[70px]">
+              <div className="mb-6 sm:mb-8 flex w-full max-w-[370px]">
+                <div className="mr-4 sm:mr-6 flex h-[50px] sm:h-[60px] w-full max-w-[50px] sm:max-w-[60px] items-center justify-center overflow-hidden rounded-sm bg-primary/5 text-primary">
                   <svg
-                    width="32"
-                    height="32"
+                    width="24"
+                    height="24"
                     viewBox="0 0 32 32"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -35,21 +35,21 @@ const About = () => {
                     />
                   </svg>
                 </div>
-                <div class="w-full">
-                  <h4 class="mb-1 text-xl font-bold text-dark dark:text-white">
+                <div className="w-full">
+                  <h4 className="mb-1 text-lg sm:text-xl font-bold text-dark dark:text-white">
                     {t("contact.locationLabel")}
                   </h4>
-                  <p class="text-base text-body-color dark:text-dark-6">
+                  <p className="text-sm sm:text-base text-body-color dark:text-dark-6">
                     {t("contact.location")}
                   </p>
                 </div>
               </div>
 
-              <div class="mb-8 flex w-full max-w-[370px]">
-                <div class="mr-6 flex h-[60px] w.full max-w-[60px] items-center justify-center overflow-hidden rounded-sm bg-primary/5 text-primary sm:h-[70px] sm:max-w-[70px]">
+              <div className="mb-6 sm:mb-8 flex w-full max-w-[370px]">
+                <div className="mr-4 sm:mr-6 flex h-[50px] sm:h-[60px] w-full max-w-[50px] sm:max-w-[60px] items-center justify-center overflow-hidden rounded-sm bg-primary/5 text-primary">
                   <svg
-                    width="32"
-                    height="32"
+                    width="24"
+                    height="24"
                     viewBox="0 0 32 32"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -75,21 +75,21 @@ const About = () => {
                     </defs>
                   </svg>
                 </div>
-                <div class="w-full">
-                  <h4 class="mb-1 text-xl font-bold text-dark dark:text-white">
+                <div className="w-full">
+                  <h4 className="mb-1 text-lg sm:text-xl font-bold text-dark dark:text-white">
                     {t("contact.phoneLabel")}
                   </h4>
-                  <p class="text-base text-body-color dark:text-dark-6">
+                  <p className="text-sm sm:text-base text-body-color dark:text-dark-6">
                     0730420868
                   </p>
                 </div>
               </div>
 
-              <div class="mb-8 flex w-full max-w-[370px]">
-                <div class="mr-6 flex h-[60px] w.full max-w-[60px] items-center justify-center overflow-hidden rounded-sm bg-primary/5 text-primary sm:h-[70px] sm:max-w-[70px]">
+              <div className="mb-6 sm:mb-8 flex w-full max-w-[370px]">
+                <div className="mr-4 sm:mr-6 flex h-[50px] sm:h-[60px] w-full max-w-[50px] sm:max-w-[60px] items-center justify-center overflow-hidden rounded-sm bg-primary/5 text-primary">
                   <svg
-                    width="32"
-                    height="32"
+                    width="24"
+                    height="24"
                     viewBox="0 0 32 32"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -100,52 +100,52 @@ const About = () => {
                     />
                   </svg>
                 </div>
-                <div class="w-full">
-                  <h4 class="mb-1 text-xl font-bold text-dark dark:text-white">
+                <div className="w-full">
+                  <h4 className="mb-1 text-lg sm:text-xl font-bold text-dark dark:text-white">
                     {t("contact.emailLabel")}
                   </h4>
-                  <p class="text-base text-body-color dark:text-dark-6">
+                  <p className="text-sm sm:text-base text-body-color dark:text-dark-6">
                     info@yourdomain.com
                   </p>
                 </div>
               </div>
             </div>
           </div>
-          <div class="w-full ml-[-20px] px-4 lg:w-1/2 xl:w-5/12 ">
-            <div class="relative rounded-lg bg-white p-8 shadow-lg sm:p-12  dark:bg-gray-800 dark:text-white">
+          <div className="w-full px-4 lg:w-1/2 xl:w-5/12">
+            <div className="relative rounded-lg bg-white p-6 sm:p-8 lg:p-12 shadow-lg dark:bg-gray-800 dark:text-white">
               <form>
-                <div class="mb-6">
+                <div className="mb-4 sm:mb-6">
                   <input
                     type="text"
                     placeholder={t("contact.label") + " / " + t("nav.home")}
-                    class="w-full rounded-sm border border-stroke px-[14px] py-3 text-base text-body-color outline-hidden focus:border-primary dark:border-dark-3 dark:bg-gray-900 dark:text-white"
+                    className="w-full rounded-sm border border-stroke px-3 sm:px-[14px] py-2 sm:py-3 text-sm sm:text-base text-body-color outline-hidden focus:border-primary dark:border-dark-3 dark:bg-gray-900 dark:text-white"
                   />
                 </div>
-                <div class="mb-6">
+                <div className="mb-4 sm:mb-6">
                   <input
                     type="email"
                     placeholder="Email"
-                    class="w-full rounded-sm border border-stroke px-[14px] py-3 text-base text-body-color outline-hidden focus:border-primary dark:border-dark-3  dark:bg-gray-900 dark:text-white"
+                    className="w-full rounded-sm border border-stroke px-3 sm:px-[14px] py-2 sm:py-3 text-sm sm:text-base text-body-color outline-hidden focus:border-primary dark:border-dark-3 dark:bg-gray-900 dark:text-white"
                   />
                 </div>
-                <div class="mb-6">
+                <div className="mb-4 sm:mb-6">
                   <input
                     type="text"
                     placeholder="Phone"
-                    class="w-full rounded-sm border border-stroke px-[14px] py-3 text-base text-body-color outline-hidden focus:border-primary dark:border-dark-3  dark:bg-gray-900 dark:text-white"
+                    className="w-full rounded-sm border border-stroke px-3 sm:px-[14px] py-2 sm:py-3 text-sm sm:text-base text-body-color outline-hidden focus:border-primary dark:border-dark-3 dark:bg-gray-900 dark:text-white"
                   />
                 </div>
-                <div class="mb-6">
+                <div className="mb-4 sm:mb-6">
                   <textarea
                     rows="6"
                     placeholder={t("contact.messagePlaceholder")}
-                    className="w-full resize-none rounded-sm border border-stroke px-[14px] py-3 text-base text-body-color outline-hidden focus:border-blue-500 dark:border-dark-3 dark:bg-gray-900 dark:text-white"
+                    className="w-full resize-none rounded-sm border border-stroke px-3 sm:px-[14px] py-2 sm:py-3 text-sm sm:text-base text-body-color outline-hidden focus:border-blue-500 dark:border-dark-3 dark:bg-gray-900 dark:text-white"
                   ></textarea>
                 </div>
                 <div>
                   <button
                     type="submit"
-                    className="w-full rounded-sm border border-primary bg-primary p-3 text-black transition hover:bg-blue-700 dark:text-white"
+                    className="w-full rounded-sm border border-primary bg-primary p-3 text-sm sm:text-base font-medium text-black transition hover:bg-blue-700 dark:text-white"
                   >
                     {t("contact.send")}
                   </button>
