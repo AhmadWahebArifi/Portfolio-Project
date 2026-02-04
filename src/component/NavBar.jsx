@@ -54,8 +54,8 @@ const Navbar = () => {
 
   return (
     <nav className="w-full fixed top-0 left-0 z-50 bg-white text-black shadow-md dark:bg-gray-900 dark:text-white">
-      <div className="max-w-6xl px-4 flex items-center justify-between h-16">
-        <div className="flex items-center space-x-4 ">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+        <div className="flex items-center space-x-2 sm:space-x-4">
           <div>
             <LucideLanguages
               onClick={languageHandler}
@@ -67,12 +67,12 @@ const Navbar = () => {
             {" "}
             <Theme className="cursor-pointer" />
           </div>
-          <div className="text-lg font-bold text-gray-800 dark:text-white">
-            Ahmad Waheb's Portifolio
+          <div className="text-sm sm:text-base font-bold text-gray-800 dark:text-white hidden xs:block sm:block">
+            Ahmad Waheb's Portfolio
           </div>
         </div>
         {/* Desktop nav */}
-        <ul className="hidden md:flex gap-8 text-gray-700 font-medium dark:text-white">
+        <ul className="hidden lg:flex gap-6 sm:gap-8 text-gray-700 font-medium dark:text-white">
           {navLinks.map((link) => (
             <li key={link.name}>
               <a href={link.href} className="hover:text-blue-600">
@@ -83,12 +83,12 @@ const Navbar = () => {
         </ul>
 
         {/* Mobile menu button */}
-        <div className="md:hidden flex">
+        <div className="lg:hidden flex items-center space-x-2">
           <button
             onClick={MenuHandler}
             className="text-gray-700 dark:text-white"
           >
-            {isOpen ? <X size={28} /> : <Menu size={28} />}
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>
@@ -110,14 +110,14 @@ const Navbar = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="md:hidden fixed top-16 left-0 right-0 z-40 bg-white dark:bg-gray-900 shadow-lg overflow-hidden"
+            className="lg:hidden fixed top-16 left-0 right-0 z-40 bg-white dark:bg-gray-900 shadow-lg overflow-hidden"
             // `overflow-hidden` can be important to clip content during animation
             initial="hidden" // Start with the "hidden" variant
             animate="visible" // Animate to the "visible" variant when present
             exit="hidden" // Animate to "hidden" when being removed
             variants={menuVariants} // Use the defined variants
           >
-            <ul className="flex flex-col items-center gap-4 p-4 text-gray-700 dark:text-gray-200 font-medium">
+            <ul className="flex flex-col items-center gap-3 sm:gap-4 p-4 text-gray-700 dark:text-gray-200 font-medium">
               {navLinks.map((link, index) => (
                 <motion.li
                   key={link.name}
@@ -130,7 +130,7 @@ const Navbar = () => {
                 >
                   <a
                     href={link.href}
-                    className="block py-2 hover:text-blue-600 dark:hover:text-blue-300 transition-colors"
+                    className="block py-3 px-4 hover:text-blue-600 dark:hover:text-blue-300 transition-colors text-base sm:text-lg"
                     onClick={() => setIsOpen(false)} // Close menu on link click
                   >
                     {link.name}
