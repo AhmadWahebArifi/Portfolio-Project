@@ -1,12 +1,24 @@
 import { useState } from "react";
 import { Menu, X, LucideLanguages } from "lucide-react";
 import Theme from "../store/Theme";
-import { motion, AnimatePresence } from "framer-motion"; // Import Framer Motion
+import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { t, i18n } = useTranslation();
+
+  const handleSmoothScroll = (e, href) => {
+    e.preventDefault();
+    const target = document.querySelector(href);
+    if (target) {
+      target.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+    setIsOpen(false); // Close mobile menu if open
+  };
 
   const MenuHandler = () => {
     setIsOpen(!isOpen);
@@ -56,17 +68,24 @@ const Navbar = () => {
     <nav className="w-full fixed top-0 left-0 z-50 bg-white text-black shadow-md dark:bg-gray-900 dark:text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
         <div className="flex items-center space-x-2 sm:space-x-4">
-          <div>
+          <motion.div
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+          >
             <LucideLanguages
               onClick={languageHandler}
-              className="cursor-pointer hover:text-blue-600"
+              className="cursor-pointer hover:text-blue-600 transition-all duration-300 ease-in-out"
               title={i18n.language === "fa" ? "English" : "فارسی"}
             />
-          </div>
-          <div>
-            {" "}
-            <Theme className="cursor-pointer" />
-          </div>
+          </motion.div>
+          <motion.div
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+          >
+            <Theme className="cursor-pointer transition-all duration-300 ease-in-out" />
+          </motion.div>
           <div className="text-sm sm:text-base font-bold text-gray-800 dark:text-white hidden xs:block sm:block">
             Ahmad Waheb's Portfolio
           </div>
@@ -74,22 +93,40 @@ const Navbar = () => {
         {/* Desktop nav */}
         <ul className="hidden lg:flex gap-6 sm:gap-8 text-gray-700 font-medium dark:text-white">
           {navLinks.map((link) => (
-            <li key={link.name}>
-              <a href={link.href} className="hover:text-blue-600">
+            <motion.li
+              key={link.name}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            >
+              <a
+                href={link.href}
+                onClick={(e) => handleSmoothScroll(e, link.href)}
+                className="hover:text-blue-600 transition-all duration-300 ease-in-out relative group"
+              >
                 {link.name}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 ease-in-out group-hover:w-full"></span>
               </a>
-            </li>
+            </motion.li>
           ))}
         </ul>
 
         {/* Mobile menu button */}
         <div className="lg:hidden flex items-center space-x-2">
-          <button
+          <motion.button
             onClick={MenuHandler}
-            className="text-gray-700 dark:text-white"
+            className="text-gray-700 dark:text-white p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300 ease-in-out"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
           >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+            <motion.div
+              animate={{ rotate: isOpen ? 180 : 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </motion.div>
+          </motion.button>
         </div>
       </div>
 
@@ -122,19 +159,23 @@ const Navbar = () => {
                 <motion.li
                   key={link.name}
                   className="w-full text-center"
-                  // Optional: Animate list items individually
-                  // variants={listItemVariants}
-                  // initial="hidden" // if not staggering from parent
-                  // animate="visible" // if not staggering from parent
-                  // transition={{ delay: index * 0.05 }} // Simple stagger if not using parent stagger
+                  variants={listItemVariants}
+                  initial="hidden"
+                  animate="visible"
+                  transition={{ delay: index * 0.1 }}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                 >
-                  <a
+                  <motion.a
                     href={link.href}
-                    className="block py-3 px-4 hover:text-blue-600 dark:hover:text-blue-300 transition-colors text-base sm:text-lg"
-                    onClick={() => setIsOpen(false)} // Close menu on link click
+                    onClick={(e) => handleSmoothScroll(e, link.href)}
+                    className="block py-3 px-4 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-300 ease-in-out text-base sm:text-lg relative group"
+                    whileHover={{ x: 5 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
                   >
                     {link.name}
-                  </a>
+                    <span className="absolute bottom-0 left-4 w-0 h-0.5 bg-blue-600 transition-all duration-300 ease-in-out group-hover:w-full"></span>
+                  </motion.a>
                 </motion.li>
               ))}
               {/* Add Theme and Language switcher for mobile if needed */}
