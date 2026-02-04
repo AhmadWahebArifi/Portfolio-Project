@@ -45,10 +45,10 @@ const Hero = () => {
 
   return (
     <>
-      <div className="sm:mt-12 flex flex-col lg:flex-row items-center justify-center h-screen px-6 sm:px-12 lg:px-24 bg-white dark:bg-gray-900 text-center">
+      <div className="sm:mt-12 flex flex-col lg:flex-row items-center justify-center min-h-screen px-4 sm:px-6 lg:px-24 bg-white dark:bg-gray-900 text-center py-12">
         {/* Profile Section */}
         <motion.div
-          className="w-40 h-40 sm:w-48 sm:h-48 rounded-full border-4 border-green-500 overflow-hidden mb-6 lg:mb-0 lg:mr-12"
+          className="w-32 h-32 sm:w-40 sm:h-48 lg:w-48 lg:h-48 rounded-full border-4 border-green-500 overflow-hidden mb-6 lg:mb-0 lg:mr-12"
           variants={profileVariants}
           initial="initial"
           animate="animate"
@@ -72,13 +72,13 @@ const Hero = () => {
 
         {/* Combined Text Section */}
         <motion.div
-          className="max-w-lg"
+          className="max-w-md w-full"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5 }}
         >
           <motion.h1
-            className="text-3xl sm:text-4xl font-bold text-gray-800 dark:text-white mb-4"
+            className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.7 }}
@@ -86,7 +86,7 @@ const Hero = () => {
             {t("hero.greeting")}
           </motion.h1>
           <motion.p
-            className="text-base sm:text-lg text-gray-600 dark:text-gray-400 mb-2"
+            className="text-sm sm:text-base lg:text-lg text-gray-600 dark:text-gray-400 mb-2"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 1 }}
@@ -94,7 +94,7 @@ const Hero = () => {
             {t("hero.title")}
           </motion.p>
           <motion.p
-            className="text-sm sm:text-base text-gray-600 dark:text-gray-400"
+            className="text-xs sm:text-sm lg:text-base text-gray-600 dark:text-gray-400"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 1.1 }}
@@ -114,12 +114,12 @@ const Hero = () => {
           </motion.a>
         </motion.div>
       </div>
-      <section class="top-0 overflow-hidden bg-white pb-12 lg:pb-[90px]  dark:bg-gray-900">
-        <div class="container mx-auto">
-          <div class="-mx-4 flex flex-wrap items-center justify-between">
-            <div class="w-full px-4 lg:w-5/12">
-              <div class="-mx-3 flex items-center sm:-mx-4">
-                <div class="w-full m-2 px-3 sm:px-4 xl:w-1/2">
+      <section className="top-0 overflow-hidden bg-white pb-8 sm:pb-12 lg:pb-[90px] dark:bg-gray-900">
+        <div className="container mx-auto px-4">
+          <div className="-mx-4 flex flex-wrap items-center justify-between">
+            <div className="w-full px-4 lg:w-5/12">
+              <div className="-mx-3 flex items-center sm:-mx-4">
+                <div className="w-full m-2 px-3 sm:px-4 xl:w-1/2">
                   <motion.div
                     className="py-3 sm:py-4"
                     ref={ref}
@@ -131,7 +131,11 @@ const Hero = () => {
                     animate={mainControlls}
                     transition={{ duration: 3, delay: 0.6 }}
                   >
-                    <img src={img1} alt="LAMP & MERN" class="w-full rounded-md px-10" />
+                    <img
+                      src={img1}
+                      alt="LAMP & MERN"
+                      className="w-full rounded-md px-4 sm:px-6 lg:px-10"
+                    />
                   </motion.div>
                   <motion.div
                     ref={ref}
@@ -144,10 +148,14 @@ const Hero = () => {
                     transition={{ duration: 2, delay: 1.2 }}
                     className="py-3 sm:py-4"
                   >
-                    <img src={img2} alt="Databases & ETL" class="w-full rounded-md px-6" />
+                    <img
+                      src={img2}
+                      alt="Databases & ETL"
+                      className="w-full rounded-md px-2 sm:px-4 lg:px-6"
+                    />
                   </motion.div>
                 </div>
-                <div class="w-full px-3 sm:px-4 xl:w-1/2">
+                <div className="w-full px-3 sm:px-4 xl:w-1/2">
                   <motion.div
                     ref={ref}
                     variants={{
@@ -159,28 +167,36 @@ const Hero = () => {
                     transition={{ duration: 1, delay: 2 }}
                     className="relative z-10 my-4"
                   >
-                    <img src={img3} alt="Cloud & DevOps" class="w-full rounded-md px-7" />
+                    <img
+                      src={img3}
+                      alt="Cloud & DevOps"
+                      className="w-full rounded-md px-2 sm:px-4 lg:px-7"
+                    />
                   </motion.div>
                 </div>
               </div>
             </div>
-            <div class="w-full px-12 lg:w-2/3 xl:w-7/12">
-              <div class="mt-10 lg:-mt-0 mx-2">
-                <span class=" font-serif mb-4 block text-lg font-semibold text-primary">
+            <div className="w-full px-4 sm:px-6 lg:px-12 lg:w-2/3 xl:w-7/12">
+              <div className="mt-8 lg:-mt-0 mx-2">
+                <span className="font-serif mb-4 block text-lg font-semibold text-primary">
                   {t("hero.whatIDo")}
                 </span>
-                <h2 class="text-center font-serif mb-5 text-3xl font-bold text-dark sm:text-[40px]/[48px] dark:text-white">
+                <h2 className="text-center font-serif mb-5 text-2xl sm:text-3xl lg:text-[40px]/[48px] font-bold text-dark dark:text-white">
                   {t("hero.headline")}
                 </h2>
-                <p class="font-mono mb-5 text-base text-body-color dark:text-dark-6">
+                <p className="font-mono mb-5 text-sm sm:text-base text-body-color dark:text-dark-6">
                   {t("hero.points1")}
-                  <br />{t("hero.points2")}
-                  <br />{t("hero.points3")}
+                  <br />
+                  {t("hero.points2")}
+                  <br />
+                  {t("hero.points3")}
                 </p>
-                <p class="font-mono mb-8 text-base text-body-color dark:text-dark-6">
+                <p className="font-mono mb-8 text-sm sm:text-base text-body-color dark:text-dark-6">
                   {t("hero.points4")}
-                  <br />{t("hero.points5")}
-                  <br />{t("hero.points6")}
+                  <br />
+                  {t("hero.points5")}
+                  <br />
+                  {t("hero.points6")}
                 </p>
               </div>
             </div>
