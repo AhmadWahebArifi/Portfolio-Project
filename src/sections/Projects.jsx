@@ -27,38 +27,42 @@ const Projects = () => {
       animate={isInView ? "visible" : "hidden"}
     >
       <motion.h1
-        className="text-center font-semibold mb-10 text-xl"
+        className="text-center font-semibold mb-8 sm:mb-10 text-lg sm:text-xl"
         initial={{ opacity: 0, y: 30 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
         transition={{ duration: 1.2 }}
       >
         {t("projects.heading")}
       </motion.h1>
-      <div className="container">
-        <div className="flex flex-wrap">
+      <div className="container mx-auto px-4">
+        <div className="flex flex-wrap -mx-2 sm:-mx-4">
           {items.map((proj, idx) => (
             <motion.div
               key={idx}
-              className="w-5/6 ml-10 sm:w-full sm:ml-0 px-4 md:w-1/2 xl:w-1/3"
+              className="w-full sm:w-5/6 md:w-1/2 lg:w-1/3 px-2 sm:px-4"
               variants={cardVariants}
             >
-              <div className="mb-10 overflow-hidden rounded-3xl bg-white shadow-1 duration-300 hover:shadow-3 dark:bg-gray-950 dark:shadow-card dark:hover:shadow-3">
-                <img src={images[idx % images.length]} alt="project" className="w-full" />
-                <div className="p-8 text-center sm:p-9 md:p-7 xl:p-9 duration-300 hover:bg-blue-950 hover:text-white dark:hover:bg-inherit">
+              <div className="mb-6 sm:mb-8 lg:mb-10 overflow-hidden rounded-2xl sm:rounded-3xl bg-white shadow-1 duration-300 hover:shadow-3 dark:bg-gray-950 dark:shadow-card dark:hover:shadow-3">
+                <img
+                  src={images[idx % images.length]}
+                  alt="project"
+                  className="w-full"
+                />
+                <div className="p-4 sm:p-6 md:p-7 lg:p-8 xl:p-9 text-center duration-300 hover:bg-blue-950 hover:text-white dark:hover:bg-inherit">
                   <h3>
                     <a
                       href="#"
-                      className="mb-4 block text-xl font-semibold text-dark hover:text-primary sm:text-[22px] md:text-xl lg:text-[22px] xl:text-xl 2xl:text-[22px] dark:text-white"
+                      className="mb-3 sm:mb-4 block text-lg sm:text-xl md:text-lg lg:text-xl xl:text-lg 2xl:text-xl font-semibold text-dark hover:text-primary dark:text-white"
                     >
                       {proj.title}
                     </a>
                   </h3>
-                  <p className="mb-7 text-base leading-relaxed text-body-color">
+                  <p className="mb-5 sm:mb-7 text-sm sm:text-base leading-relaxed text-body-color">
                     {proj.description}
                   </p>
                   <a
                     href="#"
-                    className="inline-block rounded-full border border-gray-3 px-7 py-2 text-base font-medium text-body-color transition hover:border-primary hover:bg-primary hover:text-white dark:border-dark-3 dark:text-dark-6 dark:hover:bg-gray-900"
+                    className="inline-block rounded-full border border-gray-3 px-5 sm:px-7 py-2 text-sm sm:text-base font-medium text-body-color transition hover:border-primary hover:bg-primary hover:text-white dark:border-dark-3 dark:text-dark-6 dark:hover:bg-gray-900"
                   >
                     {t("projects.viewDetails")}
                   </a>
