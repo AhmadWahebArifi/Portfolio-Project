@@ -77,7 +77,7 @@ const Skills = () => {
                 <li className="mb-1" key={category}>
                   <button
                     onClick={() => setShowCards(category)}
-                    className={`inline-block rounded-lg px-5 py-2 text-center text-base font-semibold hover:scale-110 md:py-3 lg:px-8 ${
+                    className={`inline-block rounded-lg px-3 sm:px-5 py-2 text-center text-sm sm:text-base font-semibold hover:scale-110 md:py-3 lg:px-8 ${
                       showCards === category ? activeClasses : inactiveClasses
                     }`}
                   >
@@ -93,32 +93,29 @@ const Skills = () => {
         <motion.div className="-mx-4 flex flex-wrap" variants={sectionVariants}>
           {cards
             .filter(
-              (project) => showCards === "all" || showCards === project.category
+              (project) =>
+                showCards === "all" || showCards === project.category,
             )
             .map((project, index) => (
               <motion.div
                 key={index}
-                className="w-full px-4 md:w-1/2 xl:w-1/3"
+                className="w-full px-2 sm:px-4 md:w-1/2 lg:w-1/3"
                 variants={cardVariants}
               >
-                <div className="relative mb-12 px-4">
+                <div className="relative mb-8 sm:mb-12 px-2 sm:px-4">
                   <div className="overflow-hidden rounded-[10px]">
-                    <img
-                      src={img2}
-                      alt={project.title}
-                      className="w-full"
-                    />
+                    <img src={img2} alt={project.title} className="w-full" />
                   </div>
-                  <div className="relative z-10 mx-7 -mt-20 rounded-lg bg-white px-3 py-[34px] text-center shadow-portfolio dark:text-white dark:bg-gray-900">
-                    <span className="mb-2 block text-sm font-medium text-primary">
+                  <div className="relative z-10 mx-4 sm:mx-7 -mt-16 sm:-mt-20 rounded-lg bg-white px-2 sm:px-3 py-6 sm:py-[34px] text-center shadow-portfolio dark:text-white dark:bg-gray-900">
+                    <span className="mb-2 block text-xs sm:text-sm font-medium text-primary">
                       {project.category}
                     </span>
-                    <h3 className="mb-5 text-xl font-bold text-dark dark:text-white">
+                    <h3 className="mb-4 sm:mb-5 text-lg sm:text-xl font-bold text-dark dark:text-white">
                       {project.title}
                     </h3>
                     <a
                       href="#"
-                      className="inline-block rounded-md border border-stroke px-7 py-[10px] text-sm font-medium hover:text-black transition hover:border-primary hover:bg-primary hover:scale-110  dark:hover:text-blue-600"
+                      className="inline-block rounded-md border border-stroke px-4 sm:px-7 py-2 sm:py-[10px] text-xs sm:text-sm font-medium hover:text-black transition hover:border-primary hover:bg-primary hover:scale-110 dark:hover:text-blue-600"
                     >
                       View Details
                     </a>
