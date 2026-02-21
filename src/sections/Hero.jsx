@@ -6,6 +6,7 @@ import img1 from "../assets/about/1.jpg";
 import img2 from "../assets/about/2.jpg";
 import img3 from "../assets/about/3.jpg";
 import CV from "../assets/Waheb's CV.pdf";
+import bg2Video from "../assets/bg 2.mp4";
 // Animation Variants for Consistency
 const profileVariants = {
   initial: { scale: 0 },
@@ -45,75 +46,93 @@ const Hero = () => {
 
   return (
     <>
-      <div className="sm:mt-12 flex flex-col lg:flex-row items-center justify-center min-h-screen px-4 sm:px-6 lg:px-24 bg-white dark:bg-gray-900 text-center py-12">
-        {/* Profile Section */}
-        <motion.div
-          className="w-32 h-32 sm:w-40 sm:h-48 lg:w-48 lg:h-48 rounded-full border-4 border-green-500 overflow-hidden mb-6 lg:mb-0 lg:mr-12"
-          variants={profileVariants}
-          initial="initial"
-          animate="animate"
-          whileHover="hover"
-          transition={{ duration: 1, ease: "easeInOut" }}
-        >
-          <motion.div
-            className="w-full h-full rounded-full"
-            style={{ boxShadow: "0 0 0px rgba(0, 255, 0, 0.0)" }}
-            variants={glowVariants}
-            animate="animate"
-          >
-            <motion.img
-              src={image} // Replace with your profile picture path
-              alt="Profile"
-              className="w-full h-full object-cover"
-              transition={{ duration: 0.5 }}
-            />
-          </motion.div>
-        </motion.div>
+      {/* Hero Section with Background Video */}
+      <div className="relative min-h-screen overflow-hidden">
+        {/* Background Video for Hero */}
+        <video
+          src={bg2Video}
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute top-0 left-0 w-full h-full object-cover -z-10"
+        />
+        {/* Overlay for better text visibility */}
+        <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 -z-10" />
 
-        {/* Combined Text Section */}
-        <motion.div
-          className="max-w-md w-full"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.5 }}
-        >
-          <motion.h1
-            className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-4"
+        {/* Hero Content */}
+        <div className="relative z-10 sm:mt-12 flex flex-col lg:flex-row items-center justify-center min-h-screen px-4 sm:px-6 lg:px-24 text-center py-12">
+          {/* Profile Section */}
+          <motion.div
+            className="w-32 h-32 sm:w-40 sm:h-48 lg:w-48 lg:h-48 rounded-full border-4 border-green-500 overflow-hidden mb-6 lg:mb-0 lg:mr-12"
+            variants={profileVariants}
+            initial="initial"
+            animate="animate"
+            whileHover="hover"
+            transition={{ duration: 1, ease: "easeInOut" }}
+          >
+            <motion.div
+              className="w-full h-full rounded-full"
+              style={{ boxShadow: "0 0 0px rgba(0, 255, 0, 0.0)" }}
+              variants={glowVariants}
+              animate="animate"
+            >
+              <motion.img
+                src={image} // Replace with your profile picture path
+                alt="Profile"
+                className="w-full h-full object-cover"
+                transition={{ duration: 0.5 }}
+              />
+            </motion.div>
+          </motion.div>
+
+          {/* Combined Text Section */}
+          <motion.div
+            className="max-w-md w-full"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.7 }}
+            transition={{ duration: 1, delay: 0.5 }}
           >
-            {t("hero.greeting")}
-          </motion.h1>
-          <motion.p
-            className="text-sm sm:text-base lg:text-lg text-gray-600 dark:text-gray-400 mb-2"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 1 }}
-          >
-            {t("hero.title")}
-          </motion.p>
-          <motion.p
-            className="text-xs sm:text-sm lg:text-base text-gray-600 dark:text-gray-400"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 1.1 }}
-          >
-            {t("hero.subtitle")}
-          </motion.p>
-          {/* Download Button */}
-          <motion.a
-            href={CV} // Place your file in public/files/CV.pdf
-            download
-            className="inline-block mt-8 px-8 py-3 rounded-lg bg-gradient-to-r from-green-400 to-blue-500 text-white font-semibold shadow-lg hover:from-blue-500 hover:to-green-400 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-50"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 1.3 }}
-          >
-            {t("hero.download")}
-          </motion.a>
-        </motion.div>
+            <motion.h1
+              className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.7 }}
+            >
+              {t("hero.greeting")}
+            </motion.h1>
+            <motion.p
+              className="text-sm sm:text-base lg:text-lg text-gray-600 dark:text-gray-400 mb-2"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 1 }}
+            >
+              {t("hero.title")}
+            </motion.p>
+            <motion.p
+              className="text-xs sm:text-sm lg:text-base text-gray-600 dark:text-gray-400"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 1.1 }}
+            >
+              {t("hero.subtitle")}
+            </motion.p>
+            {/* Download Button */}
+            <motion.a
+              href={CV} // Place your file in public/files/CV.pdf
+              download
+              className="inline-block mt-8 px-8 py-3 rounded-lg bg-gradient-to-r from-green-400 to-blue-500 text-white font-semibold shadow-lg hover:from-blue-500 hover:to-green-400 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-50"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.7, delay: 1.3 }}
+            >
+              {t("hero.download")}
+            </motion.a>
+          </motion.div>
+        </div>
       </div>
+
+      {/* Second Section without background video */}
       <section className="top-0 overflow-hidden bg-white pb-8 sm:pb-12 lg:pb-[90px] dark:bg-gray-900">
         <div className="container mx-auto px-4">
           <div className="-mx-4 flex flex-wrap items-center justify-between">
