@@ -8,6 +8,7 @@ import javaVideo from "../assets/skills/java.mp4";
 import mernVideo from "../assets/skills/mern.mp4";
 import pythonVideo from "../assets/skills/python.mp4";
 import pyVideo from "../assets/skills/py.mp4";
+import MouseFlare from "../component/MouseFlare";
 
 const Skills = () => {
   const { t, i18n } = useTranslation();
@@ -102,13 +103,15 @@ const Skills = () => {
           transition={{ duration: 1.5, delay: 0.4 }}
         >
           <div className="w-full px-4">
-            <ul className="mb-12 flex flex-wrap justify-center space-x-1">
+            <ul className="mb-12 flex flex-wrap justify-center space-x-2">
               {filters.map((category) => (
-                <li className="mb-1" key={category}>
+                <li className="mb-2" key={category}>
                   <button
                     onClick={() => setShowCards(category)}
-                    className={`inline-block rounded-lg px-3 sm:px-5 py-2 text-center text-sm sm:text-base font-semibold hover:scale-110 md:py-3 lg:px-8 ${
-                      showCards === category ? activeClasses : inactiveClasses
+                    className={`inline-block rounded-full px-4 sm:px-6 py-2 text-center text-sm sm:text-base font-semibold transition-all duration-300 hover:scale-110 md:py-3 lg:px-8 shadow-md hover:shadow-lg ${
+                      showCards === category
+                        ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-xl scale-105"
+                        : "bg-white/80 backdrop-blur-sm text-gray-700 hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 hover:text-white border border-gray-200 dark:bg-gray-800/80 dark:text-gray-300 dark:border-gray-600"
                     }`}
                   >
                     {category}
@@ -132,44 +135,46 @@ const Skills = () => {
                 className="w-full px-2 sm:px-4 md:w-1/2 lg:w-1/3"
                 variants={cardVariants}
               >
-                <div className="relative mb-8 sm:mb-12 px-2 sm:px-4">
-                  <div className="overflow-hidden rounded-[10px]">
-                    {(() => {
-                      const { media, isVideo } = getMediaForProject(project);
-                      return isVideo ? (
-                        <video
-                          src={media}
-                          alt={project.title}
-                          className="w-full h-auto"
-                          autoPlay
-                          muted
-                          loop
-                          playsInline
-                        />
-                      ) : (
-                        <img
-                          src={media}
-                          alt={project.title}
-                          className="w-full"
-                        />
-                      );
-                    })()}
+                <MouseFlare>
+                  <div className="relative mb-8 sm:mb-12 px-2 sm:px-4 group">
+                    <div className="overflow-hidden rounded-[15px] shadow-lg transition-all duration-300 hover:shadow-2xl hover:scale-105">
+                      {(() => {
+                        const { media, isVideo } = getMediaForProject(project);
+                        return isVideo ? (
+                          <video
+                            src={media}
+                            alt={project.title}
+                            className="w-full h-auto transition-transform duration-300 group-hover:scale-110"
+                            autoPlay
+                            muted
+                            loop
+                            playsInline
+                          />
+                        ) : (
+                          <img
+                            src={media}
+                            alt={project.title}
+                            className="w-full transition-transform duration-300 group-hover:scale-110"
+                          />
+                        );
+                      })()}
+                    </div>
+                    <div className="relative z-10 mx-4 sm:mx-7 -mt-16 sm:-mt-20 rounded-xl bg-white/95 backdrop-blur-sm px-3 sm:px-4 py-6 sm:py-[34px] text-center shadow-xl transition-all duration-300 group-hover:bg-white group-hover:shadow-2xl dark:bg-gray-900/95 dark:group-hover:bg-gray-900 dark:text-white">
+                      <span className="mb-2 block text-xs sm:text-sm font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+                        {project.category}
+                      </span>
+                      <h3 className="mb-4 sm:mb-5 text-lg sm:text-xl font-bold text-gray-800 dark:text-white transition-colors duration-300 group-hover:text-blue-600 dark:group-hover:text-blue-400">
+                        {project.title}
+                      </h3>
+                      <a
+                        href="#"
+                        className="inline-block rounded-full border border-gray-300 px-4 sm:px-7 py-2 sm:py-[10px] text-xs sm:text-sm font-medium text-gray-700 transition-all duration-300 hover:border-blue-600 hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 hover:text-white hover:scale-105 hover:shadow-lg dark:border-gray-600 dark:text-gray-300 dark:hover:border-blue-400"
+                      >
+                        View Details
+                      </a>
+                    </div>
                   </div>
-                  <div className="relative z-10 mx-4 sm:mx-7 -mt-16 sm:-mt-20 rounded-lg bg-white px-2 sm:px-3 py-6 sm:py-[34px] text-center shadow-portfolio dark:text-white dark:bg-gray-900">
-                    <span className="mb-2 block text-xs sm:text-sm font-medium text-primary">
-                      {project.category}
-                    </span>
-                    <h3 className="mb-4 sm:mb-5 text-lg sm:text-xl font-bold text-dark dark:text-white">
-                      {project.title}
-                    </h3>
-                    <a
-                      href="#"
-                      className="inline-block rounded-md border border-stroke px-4 sm:px-7 py-2 sm:py-[10px] text-xs sm:text-sm font-medium hover:text-black transition hover:border-primary hover:bg-primary hover:scale-110 dark:hover:text-blue-600"
-                    >
-                      View Details
-                    </a>
-                  </div>
-                </div>
+                </MouseFlare>
               </motion.div>
             ))}
         </motion.div>
