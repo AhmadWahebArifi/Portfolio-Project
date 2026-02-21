@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import img1 from "../assets/pr.jpg";
 import img2 from "../assets/data.jpg";
 import img3 from "../assets/pr.jpg";
+import MouseFlare from "../component/MouseFlare";
 
 const cardVariants = {
   hidden: { opacity: 0, y: 60 },
@@ -42,32 +43,36 @@ const Projects = () => {
               className="w-full sm:w-5/6 md:w-1/2 lg:w-1/3 px-2 sm:px-4"
               variants={cardVariants}
             >
-              <div className="mb-6 sm:mb-8 lg:mb-10 overflow-hidden rounded-2xl sm:rounded-3xl bg-white shadow-1 duration-300 hover:shadow-3 dark:bg-gray-950 dark:shadow-card dark:hover:shadow-3">
-                <img
-                  src={images[idx % images.length]}
-                  alt="project"
-                  className="w-full"
-                />
-                <div className="p-4 sm:p-6 md:p-7 lg:p-8 xl:p-9 text-center duration-300 hover:bg-blue-950 hover:text-white dark:hover:bg-inherit">
-                  <h3>
+              <MouseFlare>
+                <div className="mb-6 sm:mb-8 lg:mb-10 overflow-hidden rounded-2xl sm:rounded-3xl bg-white/90 backdrop-blur-sm shadow-xl duration-300 hover:shadow-2xl hover:scale-105 dark:bg-gray-900/90 dark:shadow-card dark:hover:shadow-3xl border border-gray-100 dark:border-gray-800">
+                  <div className="overflow-hidden rounded-t-2xl sm:rounded-t-3xl">
+                    <img
+                      src={images[idx % images.length]}
+                      alt="project"
+                      className="w-full transition-transform duration-500 hover:scale-110"
+                    />
+                  </div>
+                  <div className="p-4 sm:p-6 md:p-7 lg:p-8 xl:p-9 text-center transition-all duration-300 hover:bg-gradient-to-br hover:from-blue-50 hover:to-purple-50 dark:hover:from-gray-800 dark:hover:to-gray-900">
+                    <h3>
+                      <a
+                        href="#"
+                        className="mb-3 sm:mb-4 block text-lg sm:text-xl md:text-lg lg:text-xl xl:text-lg 2xl:text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300"
+                      >
+                        {proj.title}
+                      </a>
+                    </h3>
+                    <p className="mb-5 sm:mb-7 text-sm sm:text-base leading-relaxed text-gray-600 dark:text-gray-400">
+                      {proj.description}
+                    </p>
                     <a
                       href="#"
-                      className="mb-3 sm:mb-4 block text-lg sm:text-xl md:text-lg lg:text-xl xl:text-lg 2xl:text-xl font-semibold text-dark hover:text-primary dark:text-white"
+                      className="inline-block rounded-full border border-gray-300 px-5 sm:px-7 py-2 text-sm sm:text-base font-medium text-gray-700 transition-all duration-300 hover:border-blue-600 hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 hover:text-white hover:scale-105 hover:shadow-lg dark:border-gray-600 dark:text-gray-300 dark:hover:border-blue-400"
                     >
-                      {proj.title}
+                      {t("projects.viewDetails")}
                     </a>
-                  </h3>
-                  <p className="mb-5 sm:mb-7 text-sm sm:text-base leading-relaxed text-body-color">
-                    {proj.description}
-                  </p>
-                  <a
-                    href="#"
-                    className="inline-block rounded-full border border-gray-3 px-5 sm:px-7 py-2 text-sm sm:text-base font-medium text-body-color transition hover:border-primary hover:bg-primary hover:text-white dark:border-dark-3 dark:text-dark-6 dark:hover:bg-gray-900"
-                  >
-                    {t("projects.viewDetails")}
-                  </a>
+                  </div>
                 </div>
-              </div>
+              </MouseFlare>
             </motion.div>
           ))}
         </div>
