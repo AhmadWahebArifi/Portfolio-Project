@@ -10,12 +10,19 @@ const Navbar = () => {
 
   const handleSmoothScroll = (e, href) => {
     e.preventDefault();
-    const target = document.querySelector(href);
-    if (target) {
-      target.scrollIntoView({
+    if (href === "#") {
+      window.scrollTo({
+        top: 0,
         behavior: "smooth",
-        block: "start",
       });
+    } else {
+      const target = document.querySelector(href);
+      if (target) {
+        target.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
     }
     setIsOpen(false); // Close mobile menu if open
   };
@@ -25,7 +32,7 @@ const Navbar = () => {
   };
 
   const navLinks = [
-    { name: t("nav.home"), href: "#" },
+    { name: t("nav.home"), href: "#", isHome: true },
     { name: t("nav.skills"), href: "#skills" },
     { name: t("nav.projects"), href: "#projects" },
     { name: t("nav.contact"), href: "#contact" },
@@ -102,7 +109,11 @@ const Navbar = () => {
               <a
                 href={link.href}
                 onClick={(e) => handleSmoothScroll(e, link.href)}
-                className="hover:text-blue-600 transition-all duration-300 ease-in-out relative group"
+                className={`hover:text-blue-600 transition-all duration-300 ease-in-out relative group ${
+                  link.isHome
+                    ? "font-bold text-blue-600 dark:text-blue-400"
+                    : ""
+                }`}
               >
                 {link.name}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 ease-in-out group-hover:w-full"></span>
@@ -169,7 +180,11 @@ const Navbar = () => {
                   <motion.a
                     href={link.href}
                     onClick={(e) => handleSmoothScroll(e, link.href)}
-                    className="block py-3 px-4 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-300 ease-in-out text-base sm:text-lg relative group"
+                    className={`block py-3 px-4 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-300 ease-in-out text-base sm:text-lg relative group ${
+                      link.isHome
+                        ? "font-bold text-blue-600 dark:text-blue-400"
+                        : ""
+                    }`}
                     whileHover={{ x: 5 }}
                     transition={{ type: "spring", stiffness: 300, damping: 20 }}
                   >
