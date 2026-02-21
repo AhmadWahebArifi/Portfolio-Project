@@ -7,6 +7,7 @@ import dbVideo from "../assets/skills/db.mp4";
 import javaVideo from "../assets/skills/java.mp4";
 import mernVideo from "../assets/skills/mern.mp4";
 import pythonVideo from "../assets/skills/python.mp4";
+import pyVideo from "../assets/skills/py.mp4";
 
 const Skills = () => {
   const { t, i18n } = useTranslation();
@@ -41,12 +42,12 @@ const Skills = () => {
     "LAMP (Linux, Apache, MySQL, PHP/Laravel)": video1,
     "MERN (MongoDB, Express, React, Node)": mernVideo,
     "MySQL — schema design, joins, indexes, optimization": dbVideo,
-    "MongoDB — aggregation, pipelines, sharding basics": dbVideo,
-    "ETL Pipelines — Python, data warehousing concepts": pythonVideo,
-    "Python, Java, C++ — scripting, services, algorithms": javaVideo,
+    "MongoDB — aggregation, pipelines, sharding basics": javaVideo,
+    "ETL Pipelines — Python, data warehousing concepts": pyVideo,
+    "Python, Java, C++ — scripting, services, algorithms": pythonVideo,
     "Full-Stack": mernVideo,
     Databases: dbVideo,
-    "Data/ETL": pythonVideo,
+    "Data/ETL": pyVideo,
     Languages: javaVideo,
     "Web Development": img2,
   };
