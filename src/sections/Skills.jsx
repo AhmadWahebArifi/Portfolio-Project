@@ -2,6 +2,11 @@ import React, { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import img2 from "../assets/skills/web1.gif";
+import video1 from "../assets/skills/problemsolving.mp4";
+import dbVideo from "../assets/skills/db.mp4";
+import javaVideo from "../assets/skills/java.mp4";
+import mernVideo from "../assets/skills/mern.mp4";
+import pythonVideo from "../assets/skills/python.mp4";
 
 const Skills = () => {
   const { t, i18n } = useTranslation();
@@ -30,6 +35,30 @@ const Skills = () => {
   const cardVariants = {
     hidden: { opacity: 0, y: 40 },
     visible: { opacity: 1, y: 0, transition: { duration: 1.5 } },
+  };
+
+  const videoMap = {
+    "LAMP (Linux, Apache, MySQL, PHP/Laravel)": video1,
+    "MERN (MongoDB, Express, React, Node)": mernVideo,
+    "MySQL — schema design, joins, indexes, optimization": dbVideo,
+    "MongoDB — aggregation, pipelines, sharding basics": dbVideo,
+    "ETL Pipelines — Python, data warehousing concepts": pythonVideo,
+    "Python, Java, C++ — scripting, services, algorithms": javaVideo,
+    "Full-Stack": mernVideo,
+    Databases: dbVideo,
+    "Data/ETL": pythonVideo,
+    Languages: javaVideo,
+    "Web Development": img2,
+  };
+
+  const getMediaForProject = (project) => {
+    const media = videoMap[project.title] || videoMap[project.category] || img2;
+    const isVideo =
+      media &&
+      (media.includes(".mp4") ||
+        media.includes(".webm") ||
+        media.includes(".ogg"));
+    return { media, isVideo };
   };
 
   return (
@@ -104,7 +133,26 @@ const Skills = () => {
               >
                 <div className="relative mb-8 sm:mb-12 px-2 sm:px-4">
                   <div className="overflow-hidden rounded-[10px]">
-                    <img src={img2} alt={project.title} className="w-full" />
+                    {(() => {
+                      const { media, isVideo } = getMediaForProject(project);
+                      return isVideo ? (
+                        <video
+                          src={media}
+                          alt={project.title}
+                          className="w-full h-auto"
+                          autoPlay
+                          muted
+                          loop
+                          playsInline
+                        />
+                      ) : (
+                        <img
+                          src={media}
+                          alt={project.title}
+                          className="w-full"
+                        />
+                      );
+                    })()}
                   </div>
                   <div className="relative z-10 mx-4 sm:mx-7 -mt-16 sm:-mt-20 rounded-lg bg-white px-2 sm:px-3 py-6 sm:py-[34px] text-center shadow-portfolio dark:text-white dark:bg-gray-900">
                     <span className="mb-2 block text-xs sm:text-sm font-medium text-primary">
