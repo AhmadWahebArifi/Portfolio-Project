@@ -7,6 +7,7 @@ import img2 from "../assets/about/2.jpg";
 import img3 from "../assets/about/3.jpg";
 import CV from "../assets/Waheb's CV.pdf";
 import bg2Video from "../assets/bg 2.mp4";
+import MouseFlare from "../component/MouseFlare";
 // Animation Variants for Consistency
 const profileVariants = {
   initial: { scale: 0 },
@@ -62,73 +63,75 @@ const Hero = () => {
 
         {/* Hero Content */}
         <div className="relative z-10 sm:mt-12 flex flex-col lg:flex-row items-center justify-center min-h-screen px-4 sm:px-6 lg:px-24 text-center py-12">
-          {/* Profile Section */}
-          <motion.div
-            className="w-32 h-32 sm:w-40 sm:h-48 lg:w-48 lg:h-48 rounded-full border-4 border-green-500 overflow-hidden mb-6 lg:mb-0 lg:mr-12"
-            variants={profileVariants}
-            initial="initial"
-            animate="animate"
-            whileHover="hover"
-            transition={{ duration: 1, ease: "easeInOut" }}
-          >
+          <MouseFlare>
+            {/* Profile Section */}
             <motion.div
-              className="w-full h-full rounded-full"
-              style={{ boxShadow: "0 0 0px rgba(0, 255, 0, 0.0)" }}
-              variants={glowVariants}
+              className="w-32 h-32 sm:w-40 sm:h-48 lg:w-48 lg:h-48 rounded-full overflow-hidden mb-6 lg:mb-0 lg:mr-12 shadow-xl bg-gradient-to-br from-blue-500 to-purple-600 p-1"
+              variants={profileVariants}
+              initial="initial"
               animate="animate"
+              whileHover="hover"
+              transition={{ duration: 1, ease: "easeInOut" }}
             >
-              <motion.img
-                src={image} // Replace with your profile picture path
-                alt="Profile"
-                className="w-full h-full object-cover"
-                transition={{ duration: 0.5 }}
-              />
+              <motion.div
+                className="w-full h-full rounded-full bg-white overflow-hidden"
+                style={{ boxShadow: "0 0 0px rgba(59, 130, 246, 0.0)" }}
+                variants={glowVariants}
+                animate="animate"
+              >
+                <motion.img
+                  src={image}
+                  alt="Profile"
+                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                  transition={{ duration: 0.5 }}
+                />
+              </motion.div>
             </motion.div>
-          </motion.div>
 
-          {/* Combined Text Section */}
-          <motion.div
-            className="max-w-md w-full"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.5 }}
-          >
-            <motion.h1
-              className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white mb-4"
+            {/* Combined Text Section */}
+            <motion.div
+              className="max-w-md w-full"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.7 }}
+              transition={{ duration: 1, delay: 0.5 }}
             >
-              {t("hero.greeting")}
-            </motion.h1>
-            <motion.p
-              className="text-sm sm:text-base lg:text-lg text-gray-600 dark:text-gray-400 mb-2"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 1 }}
-            >
-              {t("hero.title")}
-            </motion.p>
-            <motion.p
-              className="text-xs sm:text-sm lg:text-base text-gray-600 dark:text-gray-400"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 1.1 }}
-            >
-              {t("hero.subtitle")}
-            </motion.p>
-            {/* Download Button */}
-            <motion.a
-              href={CV} // Place your file in public/files/CV.pdf
-              download
-              className="inline-block mt-8 px-8 py-3 rounded-lg bg-gradient-to-r from-green-400 to-blue-500 text-white font-semibold shadow-lg hover:from-blue-500 hover:to-green-400 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-50"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.7, delay: 1.3 }}
-            >
-              {t("hero.download")}
-            </motion.a>
-          </motion.div>
+              <motion.h1
+                className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 drop-shadow-lg"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.7 }}
+              >
+                {t("hero.greeting")}
+              </motion.h1>
+              <motion.p
+                className="text-sm sm:text-base lg:text-lg text-white/90 mb-2 drop-shadow-md"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 1 }}
+              >
+                {t("hero.title")}
+              </motion.p>
+              <motion.p
+                className="text-xs sm:text-sm lg:text-base text-white/80 drop-shadow-md"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 1.1 }}
+              >
+                {t("hero.subtitle")}
+              </motion.p>
+              {/* Download Button */}
+              <motion.a
+                href={CV}
+                download
+                className="inline-block mt-8 px-8 py-3 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold shadow-xl hover:from-blue-700 hover:to-purple-700 transition-all duration-300 hover:scale-110 hover:shadow-2xl focus:outline-none focus:ring-4 focus:ring-blue-400 focus:ring-opacity-50"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.7, delay: 1.3 }}
+              >
+                {t("hero.download")}
+              </motion.a>
+            </motion.div>
+          </MouseFlare>
         </div>
       </div>
 
