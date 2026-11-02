@@ -1,231 +1,39 @@
-import { useRef, useEffect } from "react";
-import { motion, useInView, useAnimation } from "framer-motion";
+import { ArrowDown, ArrowUpRight, Download } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import image from "../assets/myphoto.jpg";
-import img1 from "../assets/about/1.jpg";
-import img2 from "../assets/about/2.jpg";
-import img3 from "../assets/about/3.jpg";
-import CV from "../assets/Waheb's CV.pdf";
-import bg2Video from "../assets/bg 2.mp4";
-import MouseFlare from "../component/MouseFlare";
-// Animation Variants for Consistency
-const profileVariants = {
-  initial: { scale: 0 },
-  animate: { scale: 1 },
-  hover: { scale: 1.1, rotate: 5 },
-};
-
-// Keyframes for the glowing effect
-const glowVariants = {
-  animate: {
-    boxShadow: [
-      "0 0 0px rgba(0, 255, 0, 0.0)",
-      "0 0 15px rgba(0, 255, 0, 0.5)",
-      "0 0 30px rgba(0, 255, 0, 0.3)",
-      "0 0 15px rgba(0, 255, 0, 0.5)",
-      "0 0 0px rgba(0, 255, 0, 0.0)",
-    ],
-    transition: {
-      duration: 2,
-      repeat: Infinity,
-    },
-  },
-};
+import portrait from "../assets/myphoto.jpg";
+import cv from "../assets/Waheb's CV.pdf";
 
 const Hero = () => {
-  const { innerWidth: Width } = window;
-  const ref = useRef();
-  const isInView = useInView(ref);
-  const mainControlls = useAnimation(isInView);
   const { t } = useTranslation();
-  //use effect when page loads
-  useEffect(() => {
-    if (isInView) {
-      mainControlls.start("visible");
-    }
-  }, [isInView]);
 
   return (
-    <>
-      {/* Hero Section with Background Video */}
-      <div className="relative min-h-screen overflow-hidden">
-        {/* Background Video for Hero */}
-        <video
-          src={bg2Video}
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute top-0 left-0 w-full h-full object-cover -z-10"
-        />
-        {/* Overlay for better text visibility */}
-        <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 -z-10" />
-
-        {/* Hero Content */}
-        <div className="relative z-10 sm:mt-12 flex flex-col lg:flex-row items-center justify-center min-h-screen px-4 sm:px-6 lg:px-24 text-center py-12">
-          <MouseFlare>
-            {/* Profile Section */}
-            <motion.div
-              className="w-32 h-32 sm:w-40 sm:h-48 lg:w-48 lg:h-48 rounded-full overflow-hidden mb-6 lg:mb-0 lg:mr-12 shadow-xl bg-gradient-to-br from-blue-500 to-purple-600 p-1"
-              variants={profileVariants}
-              initial="initial"
-              animate="animate"
-              whileHover="hover"
-              transition={{ duration: 1, ease: "easeInOut" }}
-            >
-              <motion.div
-                className="w-full h-full rounded-full bg-white overflow-hidden"
-                style={{ boxShadow: "0 0 0px rgba(59, 130, 246, 0.0)" }}
-                variants={glowVariants}
-                animate="animate"
-              >
-                <motion.img
-                  src={image}
-                  alt="Profile"
-                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
-                  transition={{ duration: 0.5 }}
-                />
-              </motion.div>
-            </motion.div>
-
-            {/* Combined Text Section */}
-            <motion.div
-              className="max-w-md w-full"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.5 }}
-            >
-              <motion.h1
-                className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 drop-shadow-lg"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.7 }}
-              >
-                {t("hero.greeting")}
-              </motion.h1>
-              <motion.p
-                className="text-sm sm:text-base lg:text-lg text-white/90 mb-2 drop-shadow-md"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 1 }}
-              >
-                {t("hero.title")}
-              </motion.p>
-              <motion.p
-                className="text-xs sm:text-sm lg:text-base text-white/80 drop-shadow-md"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 1.1 }}
-              >
-                {t("hero.subtitle")}
-              </motion.p>
-              {/* Download Button */}
-              <motion.a
-                href={CV}
-                download
-                className="inline-block mt-8 px-8 py-3 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold shadow-xl hover:from-blue-700 hover:to-purple-700 transition-all duration-300 hover:scale-110 hover:shadow-2xl focus:outline-none focus:ring-4 focus:ring-blue-400 focus:ring-opacity-50"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.7, delay: 1.3 }}
-              >
-                {t("hero.download")}
-              </motion.a>
-            </motion.div>
-          </MouseFlare>
+    <section className="hero section-wrap" id="top">
+      <div className="hero-copy">
+        <p className="eyebrow"><span className="eyebrow-dot" />{t("hero.eyebrow")}</p>
+        <h1>{t("hero.headline")}</h1>
+        <p className="hero-intro">{t("hero.subtitle")}</p>
+        <div className="hero-actions">
+          <a className="button button-primary" href="#projects">
+            {t("hero.viewWork")} <ArrowDown size={16} />
+          </a>
+          <a className="button button-quiet" href={cv} download>
+            <Download size={16} /> {t("hero.download")}
+          </a>
         </div>
       </div>
-
-      {/* Second Section without background video */}
-      <section className="top-0 overflow-hidden bg-white pb-8 sm:pb-12 lg:pb-[90px] dark:bg-gray-900">
-        <div className="container mx-auto px-4">
-          <div className="-mx-4 flex flex-wrap items-center justify-between">
-            <div className="w-full px-4 lg:w-5/12">
-              <div className="-mx-3 flex items-center sm:-mx-4">
-                <div className="w-full m-2 px-3 sm:px-4 xl:w-1/2">
-                  <motion.div
-                    className="py-3 sm:py-4"
-                    ref={ref}
-                    variants={{
-                      visible: { opacity: 1, x: 0 },
-                      hidden: { opacity: 0, x: 75 },
-                    }}
-                    initial="hidden"
-                    animate={mainControlls}
-                    transition={{ duration: 3, delay: 0.6 }}
-                  >
-                    <img
-                      src={img1}
-                      alt="LAMP & MERN"
-                      className="w-full rounded-md px-4 sm:px-6 lg:px-10"
-                    />
-                  </motion.div>
-                  <motion.div
-                    ref={ref}
-                    variants={{
-                      visible: { opacity: 1, x: 0 },
-                      hidden: { opacity: 0, x: -75 },
-                    }}
-                    initial="hidden"
-                    animate={mainControlls}
-                    transition={{ duration: 2, delay: 1.2 }}
-                    className="py-3 sm:py-4"
-                  >
-                    <img
-                      src={img2}
-                      alt="Databases & ETL"
-                      className="w-full rounded-md px-2 sm:px-4 lg:px-6"
-                    />
-                  </motion.div>
-                </div>
-                <div className="w-full px-3 sm:px-4 xl:w-1/2">
-                  <motion.div
-                    ref={ref}
-                    variants={{
-                      visible: { opacity: 1, x: 0 },
-                      hidden: { opacity: 0, x: -75 },
-                    }}
-                    initial="hidden"
-                    animate={mainControlls}
-                    transition={{ duration: 1, delay: 2 }}
-                    className="relative z-10 my-4"
-                  >
-                    <img
-                      src={img3}
-                      alt="Cloud & DevOps"
-                      className="w-full rounded-md px-2 sm:px-4 lg:px-7"
-                    />
-                  </motion.div>
-                </div>
-              </div>
-            </div>
-            <div className="w-full px-4 sm:px-6 lg:px-12 lg:w-2/3 xl:w-7/12">
-              <div className="mt-8 lg:-mt-0 mx-2">
-                <span className="font-serif mb-4 block text-lg font-semibold text-primary">
-                  {t("hero.whatIDo")}
-                </span>
-                <h2 className="text-center font-serif mb-5 text-2xl sm:text-3xl lg:text-[40px]/[48px] font-bold text-dark dark:text-white">
-                  {t("hero.headline")}
-                </h2>
-                <p className="font-mono mb-5 text-sm sm:text-base text-body-color dark:text-dark-6">
-                  {t("hero.points1")}
-                  <br />
-                  {t("hero.points2")}
-                  <br />
-                  {t("hero.points3")}
-                </p>
-                <p className="font-mono mb-8 text-sm sm:text-base text-body-color dark:text-dark-6">
-                  {t("hero.points4")}
-                  <br />
-                  {t("hero.points5")}
-                  <br />
-                  {t("hero.points6")}
-                </p>
-              </div>
-            </div>
-          </div>
+      <div className="hero-portrait-wrap">
+        <div className="portrait-frame">
+          <img src={portrait} alt={t("hero.portraitAlt")} />
         </div>
-      </section>
-    </>
+        <div className="portrait-caption">
+          <span>{t("hero.portraitCaption")}</span>
+          <ArrowUpRight size={16} aria-hidden="true" />
+        </div>
+      </div>
+      <a className="scroll-cue" href="#projects">
+        <span>{t("hero.scroll")}</span><span className="scroll-line" />
+      </a>
+    </section>
   );
 };
 

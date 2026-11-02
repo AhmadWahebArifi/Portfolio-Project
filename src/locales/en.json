@@ -1,55 +1,85 @@
 {
   "nav": {
-    "home": "Home",
-    "skills": "Skills",
-    "projects": "Projects",
-    "contact": "Contact"
+    "home": "Back to top",
+    "label": "Main navigation",
+    "work": "Work",
+    "stack": "Stack",
+    "about": "About",
+    "contact": "Contact",
+    "sayHello": "Say hello",
+    "language": "Switch language",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
   },
   "hero": {
-    "greeting": "Hi, I'm Ahmad Waheb Arifi",
-    "title": "Full‑Stack Developer — LAMP & MERN",
-    "subtitle": "I build scalable web apps, APIs, and data solutions across Linux/Apache/MySQL/PHP and MongoDB/Express/React/Node. Comfortable with SQL and NoSQL data modeling, ETL pipelines, and production deployments.",
-    "download": "Download CV",
-    "whatIDo": "What I Do",
-    "headline": "End‑to‑end web and data solutions",
-    "points1": "• LAMP: Linux, Apache, MySQL, PHP (Laravel) — REST APIs, auth, dashboards.",
-    "points2": "• MERN: MongoDB, Express, React, Node — SPAs, SSR, real‑time features.",
-    "points3": "• Databases: MySQL, MongoDB — schema design, indexing, performance.",
-    "points4": "• Data & ETL: Python, pipelines, data warehousing concepts, reporting.",
-    "points5": "• Languages: Python, Java, C++ — scripting, services, and algorithms.",
-    "points6": "• DevOps: Vite/Tailwind, deployment, CI basics, monitoring."
-  },
-  "skills": {
-    "heading": "Full‑stack development and data engineering",
-    "subheading": "LAMP & MERN stacks, SQL/NoSQL databases, Python ETL, and core languages.",
-    "filters": ["all", "Full-Stack", "Databases", "Data/ETL", "Languages"],
-    "cards": [
-      { "category": "Full-Stack", "title": "LAMP (Linux, Apache, MySQL, PHP/Laravel)" },
-      { "category": "Full-Stack", "title": "MERN (MongoDB, Express, React, Node)" },
-      { "category": "Databases", "title": "MySQL — schema design, joins, indexes, optimization" },
-      { "category": "Databases", "title": "MongoDB — aggregation, pipelines, sharding basics" },
-      { "category": "Data/ETL", "title": "ETL Pipelines — Python, data warehousing concepts" },
-      { "category": "Languages", "title": "Python, Java, C++ — scripting, services, algorithms" }
-    ]
+    "eyebrow": "Full-stack developer · Kabul, Afghanistan",
+    "headline": "I build useful web products, from interface to database.",
+    "subtitle": "I’m Ahmad Waheb Arifi, a full-stack developer working across LAMP and MERN, with a strong interest in databases and data workflows.",
+    "viewWork": "Explore selected work",
+    "download": "Download résumé",
+    "portraitAlt": "Portrait of Ahmad Waheb Arifi",
+    "portraitCaption": "Ahmad Waheb Arifi · Developer",
+    "scroll": "Scroll to explore"
   },
   "projects": {
-    "heading": "Featured work across LAMP, MERN, and Data/ETL",
+    "kicker": "Selected work",
+    "heading": "Selected projects.",
+    "intro": "A few public projects, with source code linked directly to GitHub.",
+    "github": "More on GitHub",
+    "repository": "View repository",
+    "technologies": "Technologies used",
+    "frontend": "Frontend",
+    "backend": "Backend",
     "items": [
-      { "title": "LAMP CRM Platform", "description": "Customer management app built with Laravel, MySQL, and REST APIs. Features RBAC, reporting, and automated emails." },
-      { "title": "MERN E‑Commerce SPA", "description": "React storefront with Node/Express backend, MongoDB, JWT auth, Stripe checkout, and admin dashboard." },
-      { "title": "Python ETL & Warehouse", "description": "Data ingestion pipelines from APIs/files into a warehouse; transformations and scheduled reports." }
-    ],
-    "viewDetails": "View Details"
+      {
+        "slug": "sarmayayab",
+        "category": "Inventory management",
+        "title": "SarmayaYab",
+        "description": "A branch-level inventory system for tracking stock across multiple locations, with real-time updates and quantity adjustments.",
+        "stack": ["JavaScript", "PHP", "Inventory"]
+      },
+      {
+        "slug": "shipsmart",
+        "category": "Logistics platform",
+        "title": "ShipSmart",
+        "description": "A platform for managing and tracking inter-provincial shipments and delivery routes.",
+        "stack": ["JavaScript", "Web application", "Logistics"]
+      },
+      {
+        "slug": "provinceGame",
+        "category": "Python · Geography game",
+        "title": "Afghanistan Province Game",
+        "description": "A map-based game where players identify Afghanistan’s provinces.",
+        "stack": ["Python", "Game", "Geography"]
+      }
+    ]
+  },
+  "skills": {
+    "kicker": "Toolkit",
+    "heading": "A practical toolkit.",
+    "intro": "Technologies and methods from my full-stack, database, and data-workflow experience.",
+    "groups": [
+      { "label": "Web development", "items": ["HTML", "CSS", "JavaScript", "React", "Node.js", "PHP", "Laravel"] },
+      { "label": "Programming", "items": ["Python", "Java", "C++"] },
+      { "label": "Databases", "items": ["MySQL", "SQLite", "MongoDB", "SQL"] },
+      { "label": "Data & visualization", "items": ["NumPy", "Pandas", "ETL", "Data modeling", "Data warehousing", "Matplotlib", "Seaborn", "Plotly"] },
+      { "label": "Foundations", "items": ["Networking", "Security basics", "A+ / Network+ coursework"] },
+      { "label": "Professional skills", "items": ["Project management", "Communication", "Teamwork", "Adaptability"] }
+    ]
+  },
+  "about": {
+    "kicker": "A little about me",
+    "heading": "Thoughtful work, built end to end.",
+    "paragraph1": "I hold a bachelor’s degree in Information Systems and worked as a developer at Kabul Polytechnic University, where I built the university website and management information system.",
+    "paragraph2": "I now work as an Application Assistant at Islamic Bank of Afghanistan, contributing to internal applications and system support. I enjoy solving practical problems with clear, maintainable software.",
+    "location": "Kabul, Afghanistan"
   },
   "contact": {
-    "label": "Contact",
-    "headline": "Let's build something great",
-    "intro": "I'm a full‑stack developer (LAMP & MERN) with strong database and ETL skills. If you have a role, project, or collaboration in mind, reach out and I'll get back quickly.",
-    "locationLabel": "Location",
-    "location": "Kabul, Afghanistan",
-    "phoneLabel": "Phone",
-    "emailLabel": "Email",
-    "messagePlaceholder": "Tell me about your project or role",
-    "send": "Send Message"
+    "kicker": "Get in touch",
+    "heading": "Have something in mind?",
+    "intro": "Explore my code and current work on GitHub.",
+    "cta": "Visit my GitHub",
+    "footerNote": "Designed with care.",
+    "backToTop": "Back to top"
   }
-} 
+}
